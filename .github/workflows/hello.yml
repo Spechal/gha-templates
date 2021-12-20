@@ -5,7 +5,7 @@ name: Hello
 on:
   workflow_call:
     inputs:
-      NAME:
+      hello_name:
         type: string
         required: true
         description: Name to print
@@ -19,8 +19,8 @@ jobs:
   print_name:
     runs-on: ubuntu-latest
     env:
-      NAME: ${{ github.event.inputs.NAME }}
+      hello_name: ${{ github.event.inputs.hello_name }}
     steps:
       - name: Print Hello
         run: |
-          echo "Hello ${{ env.NAME }}"
+          echo "Hello ${{ env.hello_name }}"
