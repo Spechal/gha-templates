@@ -25,7 +25,9 @@ defaults:
 jobs:
   print:
     runs-on: ubuntu-latest
+    env:
+      NAME: ${{ github.event.inputs.NAME }}
     steps:
       - name: Print Words
         run: |
-          echo "Hello ${{ github.event.inputs.NAME }}"
+          echo "Hello ${{ env.NAME }}"
