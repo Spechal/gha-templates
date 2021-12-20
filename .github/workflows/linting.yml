@@ -3,6 +3,9 @@
 name: Lint Codebase
 
 on:
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       # intentionally empty
