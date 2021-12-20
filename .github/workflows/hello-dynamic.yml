@@ -1,6 +1,6 @@
 # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
 
-name: Hello
+name: Hello Dynamic
 
 on:
   pull_request:
