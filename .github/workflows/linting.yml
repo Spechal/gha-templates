@@ -6,13 +6,6 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      # intentionally empty
-      # lint_actions:
-      #   description: "Lint GitHub Actions?"
-      #   required: true
-      #   default: "Y"
 
 defaults:
   run:
