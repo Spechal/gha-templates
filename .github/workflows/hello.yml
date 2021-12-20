@@ -19,7 +19,7 @@ jobs:
   print_name:
     runs-on: ubuntu-latest
     env:
-      hello_name: ${{ github.event.inputs.hello_name }}
+      hello_name: ${{ inputs.hello_name }}
     steps:
       - name: Print Hello
         run: |
