@@ -1,0 +1,30 @@
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+
+name: Lint Codebase
+
+on:
+  workflow_dispatch:
+    inputs:
+      lint_actions:
+        description: "Lint GitHub Actions?"
+        required: true
+        default: "Y"
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -o pipefail {0}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout self
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Lint Code Base
+        uses: github/super-linter/slim@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
