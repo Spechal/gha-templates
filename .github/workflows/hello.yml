@@ -10,24 +10,17 @@ on:
         required: true
         description: Name to print
         default: "World"
-  workflow_dispatch:
-    inputs:
-      NAME:
-        type: string
-        required: true
-        description: Name to print
-        default: "World"
 
 defaults:
   run:
     shell: bash --noprofile --norc -o pipefail {0}
 
 jobs:
-  print:
+  print_name:
     runs-on: ubuntu-latest
     env:
       NAME: ${{ github.event.inputs.NAME }}
     steps:
-      - name: Print Words
+      - name: Print Hello
         run: |
           echo "Hello ${{ env.NAME }}"

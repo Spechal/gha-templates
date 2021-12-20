@@ -3,10 +3,6 @@
 name: Hello Dynamic
 
 on:
-  pull_request:
-    types: [opened, edited, synchronize]
-    branches:
-      - hello
   push:
     branches:
       - hello
