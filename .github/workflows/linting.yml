@@ -5,10 +5,11 @@ name: Lint Codebase
 on:
   workflow_dispatch:
     inputs:
-      lint_actions:
-        description: "Lint GitHub Actions?"
-        required: true
-        default: "Y"
+      # intentionally empty
+      # lint_actions:
+      #   description: "Lint GitHub Actions?"
+      #   required: true
+      #   default: "Y"
 
 defaults:
   run:
