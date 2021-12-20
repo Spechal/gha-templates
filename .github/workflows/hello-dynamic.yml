@@ -1,0 +1,22 @@
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+
+name: Hello
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+    branches:
+      - hello
+  push:
+    branches:
+      - hello
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -o pipefail {0}
+
+jobs:
+  print:
+    uses: Spechal/gha-templates/.github/workflows/hello.yml@main
+    with:
+      NAME: ${{ github.sha }}
