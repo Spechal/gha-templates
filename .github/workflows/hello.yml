@@ -1,0 +1,24 @@
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+
+name: Hello
+
+on:
+  workflow_dispatch:
+    inputs:
+      NAME:
+        type: string
+        required: true
+        description: Name to print
+        default: "World"
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -o pipefail {0}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Words
+        run: |
+          echo "Hello ${ inputs.NAME }"
