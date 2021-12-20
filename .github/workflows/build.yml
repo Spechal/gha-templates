@@ -1,0 +1,26 @@
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      build_ref:
+        type: string
+        required: true
+        description: Git ref to build
+        default: ${{ github.ref }}
+
+defaults:
+  run:
+    shell: bash --noprofile --norc -o pipefail {0}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      build_ref: ${{ inputs.build_ref }}
+    steps:
+      - name: Build Ref
+        run: |
+          echo "Building ${{ env.build_ref }}"
