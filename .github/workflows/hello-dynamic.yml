@@ -15,4 +15,4 @@ jobs:
   print:
     uses: Spechal/gha-templates/.github/workflows/hello.yml@main
     with:
-      hello_name: "Spechal"
+      hello_name: "SpechalOne"
